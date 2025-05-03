@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import logo from "../../assets/images/logo.png"
+import searchImage from "../../assets/images/search.svg"
 
 const Navbar = () => {
   return (
@@ -14,7 +15,7 @@ const Navbar = () => {
             <Search />
             <img
               className="inline h-4 cursor-pointer"
-              src={logo}
+              src={searchImage}
               alt="Search"
             />
           </div>
