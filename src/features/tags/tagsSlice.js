@@ -14,7 +14,7 @@ export const fetchTags = createAsyncThunk('tags/fetchTags',
         return tags;
     }
 )
-const videoSlice = createSlice({
+const tagsSlice = createSlice({
     name: "tags",
     initialState,
     extraReducers: (builder)=>{
@@ -25,15 +25,15 @@ const videoSlice = createSlice({
         })
         .addCase(fetchTags.fulfilled,(state,action)=>{
             state.isLoading = false;
-            state.videos = action.payload;
+            state.tags = action.payload;
         })
         .addCase(fetchTags.rejected,(state,action)=>{
             state.isError = false;
-            state.videos = [];
+            state.tags = [];
             state.isError = true;
             state.erro = action.error?.message
         })
     }
 });
 
-export default videoSlice.reducer;
+export default tagsSlice.reducer;
