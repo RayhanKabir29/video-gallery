@@ -4,17 +4,17 @@ import {useDispatch, useSelector} from "react-redux"
 import { fetchVideos } from "../../features/videos/videosSlice";
 const Videos = () => {
   const dispatch = useDispatch();
-  const {videos,isLoadind,isError,error} = useSelector(state=> state.videos);
+  const {videos,isLoading,isError,error} = useSelector(state=> state.videos);
 
   useEffect(()=>{
     dispatch(fetchVideos())
   },[dispatch]);
 
   let content;
-  if(isLoadind) content = <div className="col-span-12">Loading...</div>;
-  if(!isLoadind &&isError) content= <div className="col-span-12">{error}</div>;
-  if(!isLoadind &&!isError && videos?.length=== 0) content= <div className="col-span-12">No Video Found</div>;
-  if(!isLoadind &&!isError && videos?.length>0) content=  videos?.map((video)=><Video key={video?.id} video={video}/>);
+  if(isLoading) content = <div className="col-span-12">Loading...</div>;
+  if(!isLoading &&isError) content= <div className="col-span-12">{error}</div>;
+  if(!isLoading &&!isError && videos?.length=== 0) content= <div className="col-span-12">No Video Found</div>;
+  if(!isLoading &&!isError && videos?.length>0) content=  videos?.map((video)=><Video key={video?.id} video={video}/>);
   return (
     <div>
       <section className="pt-12">
