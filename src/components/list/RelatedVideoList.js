@@ -1,7 +1,7 @@
 import RelatedVideoListItem from "./RelatedVideoListItem";
 import {useDispatch, useSelector} from "react-redux"
 import { useEffect } from "react";
-import { fetchRelatedVideos } from "../../features/relatedVideos/relatedVideoSlice";
+import { fetchRelatedVideos } from "../../features/relatedVideos/";
 
 const RelatedVideoList = ({ tags, id }) => {
   const dispatch = useDispatch();
