@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import Video from "./Video";
 import {useDispatch, useSelector} from "react-redux"
 import { fetchVideos } from "../../features/videos/videosSlice";
 const Videos = () => {
   const dispatch = useDispatch();
   const {videos,isLoading,isError,error} = useSelector(state=> state.videos);
+ const {tags,search} = useSelector((state)=>state.filter);
 
   useEffect(()=>{
-    dispatch(fetchVideos())
-  },[dispatch]);
+    dispatch(fetchVideos({tags,search}))
+  },[dispatch,tags,search]);
 
   let content;
   if(isLoading) content = <div className="col-span-12">Loading...</div>;

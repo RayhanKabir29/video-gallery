@@ -7,7 +7,7 @@ const initialState ={
 };
 
 const filterSlice = createSlice({
-    name: "videos",
+    name: "filter",
     initialState,
     reducers:{
         tagSelected:(state,action)=>{
